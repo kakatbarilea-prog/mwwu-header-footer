@@ -35,13 +35,16 @@
 
   /* Header */
   header{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
-  .bar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 0}
+  .bar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 24px;max-width:none;width:100%;margin:0}
   .brand{display:flex;align-items:center;gap:12px;min-width:0}
   .brand img{height:56px;width:auto;display:block}
   nav{display:flex;align-items:center;justify-content:center}
-  .nav{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-size:16px}
+  .nav{display:flex;list-style:none;margin:0;padding:0;font-size:16px;width:100%;justify-content:space-evenly;flex-wrap:nowrap;white-space:nowrap;gap:0}
   .nav a{color:#4b5563;font-weight:600}
-.nav a:hover{color:var(--brand)}
+  .nav a:hover{color:var(--brand)}
+
+  /* Prevent nav items from shrinking; spacing absorbs resize */
+  .nav > li{flex:0 0 auto}
 
   .actions{display:flex;align-items:center;gap:12px;white-space:nowrap}
   .phone{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-weight:600;color:#1f2937;background:#fff}
@@ -62,7 +65,7 @@
     .brand img{height:48px}
     .hamburger{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;color:#374151}
     nav{justify-content:flex-end}
-    .nav{position:fixed;inset:64px 16px auto 16px;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08);display:none;z-index:60}
+    .nav{position:fixed;inset:64px 16px auto 16px;flex-direction:column;gap:10px;padding:14px;border:1px solid var(--line);background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.08);display:none;z-index:60;/* undo desktop spread for mobile */width:auto;justify-content:flex-start;white-space:normal}
     #nav-toggle:checked ~ nav .nav{display:flex}
     .actions{gap:8px}
     .phone{padding:6px 10px}
@@ -170,7 +173,7 @@
 <div class="announce" role="region" aria-label="Announcement">
   <div class="container announce-inner">
     <div>Congratulations to our talented winemakers—medal winners at the 2025 Garden State Amateur Wine Challenge, including a <strong>“Best Red”</strong> gold honor!</div>
-    <div><a href="#">Already have an account? Log in</a></div>
+    <div><a href="https://makewinewithus.com/login">Already have an account? Log in</a></div>
   </div>
 </div>
 
@@ -188,27 +191,27 @@
   <ul class="nav" id="nav">
     <!-- Winemaking Process + submenu -->
     <li class="has-sub">
-      <a href="/process">Winemaking Process</a>
+      <a href="https://makewinewithus.com/winemaking-process">Winemaking Process</a>
       <div class="subnav" role="menu">
-        <a href="/wines-you-can-make" role="menuitem">Wines You Can Make</a>
-        <a href="/label-making" role="menuitem">Label Making</a>
+        <a href="https://makewinewithus.com/new-product-list" role="menuitem">Wines You Can Make</a>
+        <a href="https://makewinewithus.com/design-your-custom-bottle" role="menuitem">Label Making</a>
       </div>
     </li>
 
-    <li><a href="/regions">Regions</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/faqs">FAQs</a></li>
+    <li><a href="https://makewinewithus.com/region">Regions</a></li>
+    <li><a href="https://makewinewithus.com/about">About</a></li>
+    <li><a href="https://makewinewithus.com/faq-s">FAQs</a></li>
 
     <!-- Events + submenu -->
     <li class="has-sub">
-      <a href="/events" aria-current="page">Events</a>
+      <a href="https://makewinewithus.com/upcoming-events" aria-current="page">Events</a>
       <div class="subnav" role="menu">
-        <a href="/events/private" role="menuitem">Private Events</a>
-        <a href="/events/upcoming" role="menuitem">Upcoming Events</a>
+        <a href="https://makewinewithus.com/private-events" role="menuitem">Private Events</a>
+        <a href="https://makewinewithus.com/upcoming-events" role="menuitem">Upcoming Events</a>
       </div>
     </li>
 
-    <li><a href="/contact">Contact</a></li>
+    <li><a href="https://makewinewithus.com/contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -229,8 +232,8 @@
         </a>
       </div>
 
-      <a class="btn ghost" href="#">Create an Account</a>
-      <a class="btn primary" href="#">Make Wine Now</a>
+      <a class="btn ghost" href="https://makewinewithus.com/create-account">Create an Account</a>
+      <a class="btn primary" href="https://makewinewithus.com/contact">Make Wine Now</a>
     </div>
   </div>
 </header>
@@ -243,7 +246,7 @@
     <div class="footer-col">
       <h3 class="foot-title">About Make Wine With Us</h3>
       <p class="footer-text">
-        Craft small-batch wines from premium grapes with guidance from American Wine Society instructors. Choose, crush, age, and bottle — and take your vintage home.
+        Make Wine With Us offers a fun, hands-on experience where you can learn the art of crafting wine. From grape to bottle, our expert-guided process lets you create and enjoy your own wine while sharing great memories with friends.
       </p>
       <a href="#" class="btn primary footer-cta">Become a Winemaker</a>
       <div class="footer-social">
@@ -255,11 +258,11 @@
     <div class="footer-col">
       <h3 class="foot-title">Explore</h3>
       <ul class="foot-links">
-        <li><a href="#">About</a></li><li><a href="#">Winemaking Process</a></li>
-        <li><a href="#">Wines You Can Make</a></li><li><a href="#">Regions</a></li>
-        <li><a href="#">Blog</a></li><li><a href="#">FAQs</a></li>
-        <li><a href="#">Events</a></li><li><a href="#">Private Events</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="https://makewinewithus.com/about">About</a></li><li><a href="https://makewinewithus.com/winemaking-process">Winemaking Process</a></li>
+        <li><a href="https://makewinewithus.com/new-product-list">Wines You Can Make</a></li><li><a href="https://makewinewithus.com/region">Regions</a></li>
+        <li><a href="https://makewinewithus.com/blog">Blog</a></li><li><a href="https://makewinewithus.com/faq-s">FAQs</a></li>
+        <li><a href="https://makewinewithus.com/upcoming-events">Events</a></li><li><a href="https://makewinewithus.com/private-events">Private Events</a></li>
+        <li><a href="https://makewinewithus.com/contact">Contact</a></li>
       </ul>
     </div>
 
@@ -272,7 +275,7 @@
       </ul>
       <div class="hours">
         <span class="hours-label">Hours</span>
-        <span class="hours-value">Mon–Fri 12–8pm · Sat 10–6pm</span>
+        <span class="hours-value">Closed today</span>
       </div>
     </div>
   </div>
@@ -280,14 +283,91 @@
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <p>© 2025 Make Wine With Us. All rights reserved.</p>
-      <div class="foot-legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      <div class="foot-legal"><a href="https://makewinewithus.com/privacy-policy">Privacy</a><a href="https://makewinewithus.com/terms-of-service">Terms</a></div>
     </div>
   </div>
 </footer>
 
+<script>
+// Dynamic business hours (America/New_York)
+(function(){
+  const tz = 'America/New_York';
+  // 0=Sun..6=Sat
+  const schedule = [
+    null,                                   // Sun - Closed
+    null,                                   // Mon - Closed
+    {open:[13,0], close:[17,0]},            // Tue 1pm–5pm
+    {open:[13,0], close:[18,0]},            // Wed 1pm–6pm
+    {open:[13,0], close:[18,0]},            // Thu 1pm–6pm
+    {open:[13,0], close:[18,0]},            // Fri 1pm–6pm
+    null                                    // Sat - Closed
+  ];
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  function getParts(d){
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, weekday:'short', year:'numeric', month:'2-digit', day:'2-digit',
+      hour:'2-digit', minute:'2-digit', hour12:false
+    }).formatToParts(d);
+    const map = {};
+    for(const p of parts) map[p.type] = p.value;
+    const dayIdx = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(map.weekday);
+    return { dayIdx, hour:parseInt(map.hour,10), minute:parseInt(map.minute,10) };
+  }
+
+  function fmtTime([h,m]){
+    const ampm = h>=12 ? 'PM' : 'AM';
+    const h12 = ((h+11)%12)+1;
+    const mm = String(m).padStart(2,'0');
+    return `${h12}:${mm} ${ampm}`;
+  }
+
+  function nextOpenFrom(idx){
+    for(let i=1;i<=7;i++){
+      const n = (idx + i) % 7;
+      if (schedule[n]) return {dayIdx:n, opening:schedule[n].open};
+    }
+    return null;
+  }
+
+  const nowParts = getParts(new Date());
+  const target = document.querySelector('.hours .hours-value');
+  if(!target){ return; }
+
+  const today = schedule[nowParts.dayIdx];
+  if(!today){
+    // Closed all day
+    target.textContent = 'Closed today';
+    return;
+  }
+
+  const nowMin = nowParts.hour*60 + nowParts.minute;
+  const openMin = today.open[0]*60 + today.open[1];
+  const closeMin = today.close[0]*60 + today.close[1];
+
+  if(nowMin < openMin){
+    // Opens later today
+    target.textContent = `Closed · Opens at ${fmtTime(today.open)}`;
+  } else if(nowMin >= openMin && nowMin < closeMin){
+    // Open now
+    target.textContent = `Open now · Closes at ${fmtTime(today.close)}`;
+  } else {
+    // After closing
+    const next = nextOpenFrom(nowParts.dayIdx);
+    if(next){
+      const tomorrowIdx = (nowParts.dayIdx + 1) % 7;
+      if(next.dayIdx === tomorrowIdx){
+        target.textContent = `Closed · Opens tomorrow at ${fmtTime(next.opening)}`;
+      } else {
+        // Fallback for multi-day gaps (e.g., weekend)
+        target.textContent = `Closed · Opens ${dayNames[next.dayIdx]} at ${fmtTime(next.opening)}`;
+      }
+    } else {
+      target.textContent = 'Closed today';
+    }
+  }
+})();
+</script>
+
 </body>
 </html>
-
-
-
-
